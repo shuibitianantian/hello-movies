@@ -1,6 +1,16 @@
 type ReduxAction = {
-    type: string,
-    payload: any
-}
+  type: string;
+  payload: any;
+};
 
-export type {ReduxAction};
+type TitleState = {
+  pageTitle: string;
+};
+
+type HomePageState = {
+  movies: object[];
+  searchKey: string | null;
+  results: object[] | null;
+};
+
+export type { ReduxAction, TitleState, HomePageState };

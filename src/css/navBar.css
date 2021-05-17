@@ -43,6 +43,10 @@ nav .nav-pages #mobile-cta-icon {
   display: none;
 }
 
+nav .nav-pages #mobile-cta-panel-container {
+  z-index: 2;
+}
+
 nav .nav-pages #mobile-cta-panel-container #mobile-cta-panel {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -112,8 +116,8 @@ nav .nav-item {
     height: 100%;
     width: 40vw;
     padding-top: 20px;
-    -webkit-box-shadow: -2px 0 .4em black;
-            box-shadow: -2px 0 .4em black;
+    -webkit-box-shadow: -2px 0 0.4em black;
+            box-shadow: -2px 0 0.4em black;
     border-radius: 5px;
     background-color: var(--header-color);
   }
