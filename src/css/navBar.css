@@ -1,0 +1,154 @@
+:root {
+  --page-title-margin: 2vw;
+  --header-color: #282c34;
+  --title-normal-color: rgb(192, 196, 201);
+  --title-highlight-color: rgb(129, 132, 138);
+}
+
+nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-height: 10vh;
+  -webkit-box-shadow: -1px 2px 5px black;
+          box-shadow: -1px 2px 5px black;
+}
+
+nav .nav-icon {
+  font-weight: bold;
+  pointer-events: none;
+}
+
+nav .nav-icon .nav-sub-icon {
+  color: #3465eb;
+}
+
+nav .nav-pages {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+nav .nav-pages #mobile-cta-icon {
+  display: none;
+}
+
+nav .nav-pages #mobile-cta-panel-container #mobile-cta-panel {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  min-width: 30vw;
+  margin-left: 50px;
+}
+
+nav .nav-pages #mobile-cta-panel-container #mobile-cta-panel #mobile-cta-close {
+  display: none;
+}
+
+nav .nav-pages #mobile-cta-panel-container #mobile-cta-panel .page-title-normal, nav .nav-pages #mobile-cta-panel-container #mobile-cta-panel .page-title-highlight {
+  margin: 0 var(--page-title-margin) 0 var(--page-title-margin);
+  font-size: x-large;
+  color: var(--title-normal-color);
+  cursor: pointer;
+}
+
+nav .nav-pages #mobile-cta-panel-container #mobile-cta-panel .page-title-normal:hover, nav .nav-pages #mobile-cta-panel-container #mobile-cta-panel .page-title-highlight:hover {
+  color: var(--title-highlight-color);
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+nav .nav-pages #mobile-cta-panel-container #mobile-cta-panel .page-title-highlight {
+  font-weight: bold;
+  color: var(--title-highlight-color);
+}
+
+nav .nav-item {
+  margin-left: 2vw;
+}
+
+@media only screen and (max-width: 700px) {
+  nav {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding: 0 var(--page-title-margin) 0 var(--page-title-margin);
+  }
+  nav .nav-pages #mobile-cta-icon {
+    font-size: xxx-large;
+    display: block;
+    opacity: 1;
+  }
+  nav .nav-pages #mobile-cta-icon:hover {
+    background-color: rgba(192, 196, 201, 0.5);
+    border-radius: 5px;
+    -webkit-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+  }
+  nav .nav-pages #mobile-cta-panel-container {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 40vw;
+    padding-top: 20px;
+    -webkit-box-shadow: -2px 0 .4em black;
+            box-shadow: -2px 0 .4em black;
+    border-radius: 5px;
+    background-color: var(--header-color);
+  }
+  nav .nav-pages #mobile-cta-panel-container #mobile-cta-panel {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    min-height: 20vh;
+  }
+  nav .nav-pages #mobile-cta-panel-container #mobile-cta-panel .page-title-normal, nav .nav-pages #mobile-cta-panel-container #mobile-cta-panel .page-title-highlight {
+    margin: 30px 0 30px 0;
+    -webkit-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    width: 100px;
+    text-align: center;
+  }
+  nav .nav-pages #mobile-cta-panel-container #mobile-cta-panel .page-title-normal:hover, nav .nav-pages #mobile-cta-panel-container #mobile-cta-panel .page-title-highlight:hover {
+    padding: 5px 5px 5px 5px;
+    background-color: rgba(192, 196, 201, 0.1);
+    border-radius: 5px;
+  }
+  nav .nav-pages #mobile-cta-panel-container #mobile-cta-panel #mobile-cta-close {
+    left: 75%;
+    position: relative;
+    display: block;
+  }
+}
+/*# sourceMappingURL=navBar.css.map */
