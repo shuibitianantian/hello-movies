@@ -1,133 +1,129 @@
 :root {
-    --page-title-margin: 2vw;
-    --header-color: #282c34;
-    --title-normal-color: rgb(192, 196, 201);
-    --title-highlight-color: rgb(129, 132, 138);
+  --page-title-margin: 2vw;
+  --header-color: #282c34;
+  --title-normal-color: rgb(192, 196, 201);
+  --title-highlight-color: rgb(129, 132, 138);
 }
 
 nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  min-height: 10vh;
+  box-shadow: -1px 2px 5px black;
+  .nav-icon {
+    font-weight: bold;
+    .nav-sub-icon {
+      color: rgb(52, 101, 235);
+    }
+    pointer-events: none;
+  }
+
+  .nav-pages {
     display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    min-height: 10vh;
-    box-shadow: -1px 2px 5px black;
-    .nav-icon {
-        font-weight: bold;
-        .nav-sub-icon {
-            color: rgb(52, 101, 235);
-        }
-        pointer-events: none;
+
+    #mobile-cta-icon {
+      display: none;
     }
 
-    .nav-pages {
+    #mobile-cta-panel-container {
+      z-index: 2;
+      #mobile-cta-panel {
         display: flex;
-        
-        #mobile-cta-icon {
-            display: none;
+        justify-content: space-between;
+        min-width: 30vw;
+        margin-left: 50px;
+
+        #mobile-cta-close {
+          display: none;
         }
 
-        #mobile-cta-panel-container {
-
-            #mobile-cta-panel {
-                display: flex;
-                justify-content: space-between;
-                min-width: 30vw;
-                margin-left: 50px;
-    
-                #mobile-cta-close {
-                    display: none;
-                }
-    
-                .page-title-normal {
-                    margin: 0 var(--page-title-margin) 0 var(--page-title-margin);
-                    font-size: x-large;
-                    color: var(--title-normal-color);
-                    cursor: pointer;
-                }
-                
-                .page-title-normal:hover {
-                    color: var(--title-highlight-color);
-                    transition: all 0.5s ease-in-out;
-                }
-
-                .page-title-highlight {
-                    @extend .page-title-normal;
-                    font-weight: bold;
-                    color: var(--title-highlight-color);
-                }
-            }
+        .page-title-normal {
+          margin: 0 var(--page-title-margin) 0 var(--page-title-margin);
+          font-size: x-large;
+          color: var(--title-normal-color);
+          cursor: pointer;
         }
-    }
-    
-    .nav-item {
-        margin-left: 2vw;
-    }
 
+        .page-title-normal:hover {
+          color: var(--title-highlight-color);
+          transition: all 0.5s ease-in-out;
+        }
+
+        .page-title-highlight {
+          @extend .page-title-normal;
+          font-weight: bold;
+          color: var(--title-highlight-color);
+        }
+      }
+    }
+  }
+
+  .nav-item {
+    margin-left: 2vw;
+  }
 }
 
 @media only screen and (max-width: 700px) {
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 var(--page-title-margin) 0 var(--page-title-margin);
 
-    nav {    
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 var(--page-title-margin) 0 var(--page-title-margin);
+    .nav-pages {
+      #mobile-cta-icon {
+        font-size: xxx-large;
+        display: block;
+        opacity: 1;
+      }
 
-        .nav-pages {
+      #mobile-cta-icon:hover {
+        background-color: rgba(192, 196, 201, 0.5);
+        border-radius: 5px;
+        transition: all 0.5s ease-in-out;
+      }
 
-            #mobile-cta-icon {
-                font-size: xxx-large;
-                display: block;
-                opacity: 1;
-            }
+      #mobile-cta-panel-container {
+        display: none;
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100%;
+        width: 40vw;
+        padding-top: 20px;
+        box-shadow: -2px 0 0.4em black;
+        border-radius: 5px;
+        background-color: var(--header-color);
 
-            #mobile-cta-icon:hover {
-                background-color: rgba(192, 196, 201, 0.5);
-                border-radius: 5px;
-                transition: all 0.5s ease-in-out;
-            }
+        #mobile-cta-panel {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          align-items: flex-start;
+          min-height: 20vh;
 
-            #mobile-cta-panel-container {
-                display: none;
-                position: absolute;
-                top: 0;
-                right: 0;
-                height: 100%;
-                width: 40vw;
-                padding-top: 20px;
-                box-shadow: -2px 0 .4em black;
-                border-radius: 5px;
-                background-color: var(--header-color);
+          .page-title-normal {
+            margin: 30px 0 30px 0;
+            transition: all 0.5s ease-in-out;
+            width: 100px;
+            text-align: center;
+          }
 
-                #mobile-cta-panel {
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: space-between;
-                    align-items: flex-start;
-                    min-height: 20vh;
-                    
-                    .page-title-normal {
-                        margin: 30px 0 30px 0;
-                        transition: all 0.5s ease-in-out;
-                        width: 100px;
-                        text-align: center;
-                    }
+          .page-title-normal:hover {
+            padding: 5px 5px 5px 5px;
+            background-color: rgba(192, 196, 201, 0.1);
+            border-radius: 5px;
+          }
 
-                    .page-title-normal:hover {
-                        padding: 5px 5px 5px 5px;
-                        background-color: rgba(192, 196, 201, 0.1);
-                        border-radius: 5px;
-                    }
-
-                    #mobile-cta-close {
-                        left: 75%;
-                        position: relative;
-                        display: block;
-                    }
-                }
-            }
-
+          #mobile-cta-close {
+            left: 75%;
+            position: relative;
+            display: block;
+          }
         }
+      }
     }
+  }
 }

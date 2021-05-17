@@ -1,6 +1,6 @@
-import {combineReducers} from "redux";
-import {pageReducer} from "./pageReducer"
+import { combineReducers } from "redux";
+import { titleReducer } from "./titleReducer";
 
 export default combineReducers({
-    pageReducer
+  titleReducer,
 });
