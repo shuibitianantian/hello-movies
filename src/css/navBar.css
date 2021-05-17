@@ -26,6 +26,7 @@ nav {
 
 nav .nav-icon {
   font-weight: bold;
+  pointer-events: none;
 }
 
 nav .nav-icon .nav-sub-icon {
