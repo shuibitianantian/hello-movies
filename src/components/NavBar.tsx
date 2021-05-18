@@ -3,6 +3,7 @@ import BackspaceIcon from "@material-ui/icons/Backspace";
 import { useDispatch } from "react-redux";
 import { changeTitle } from "../actions";
 import "../css/navBar.css";
+import { Link } from "react-router-dom";
 
 type NavBarProps = {
   pages: string[];
@@ -75,7 +76,8 @@ function NavBar(props: NavBarProps) {
             />
             {props.pages.map((item: string, index: number) => {
               return (
-                <div
+                <Link
+                  to={item === "Home" ? "/" : "/" + item}
                   key={index}
                   className={
                     props.curPage === item
@@ -85,7 +87,7 @@ function NavBar(props: NavBarProps) {
                   onClick={() => handleClickTitle(item)}
                 >
                   {item}
-                </div>
+                </Link>
               );
             })}
           </div>
