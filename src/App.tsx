@@ -6,6 +6,9 @@ import { navBarTitles } from "./constants";
 import { useSelector } from "react-redux";
 import { HomePage } from "./components/HomePage";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { MovieListPage } from "./components/MovieListPage";
+import { LikedMoviePage } from "./components/LikedMoviePage";
+import { BlockedMoviePage } from "./components/BlockedMoviePage";
 
 function App() {
   const [posterImgs, setPosterImgs] = useState<string[]>([]);
@@ -32,13 +35,13 @@ function App() {
               <HomePage posterImgs={posterImgs} backdropImgs={backdropImgs} />
             </Route>
             <Route exact path="/Movies">
-              <div>This is movies page</div>
+              <MovieListPage />
             </Route>
             <Route exact path="/Liked">
-              <div>This is Liked page</div>
+              <LikedMoviePage />
             </Route>
             <Route exact path="/Blocked">
-              <div>This is blocked page</div>
+              <BlockedMoviePage />
             </Route>
           </Switch>
         </section>

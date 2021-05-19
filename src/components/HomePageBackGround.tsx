@@ -68,7 +68,7 @@ function HomePageBackGround({
         </div>
         <div id="buttons">
           <button onClick={handleClickCheckit}>Check it ~</button>
-          <button>Go random</button>
+          {/* <button>Go random</button> */}
         </div>
       </div>
     </>

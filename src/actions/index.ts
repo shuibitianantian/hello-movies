@@ -3,6 +3,7 @@ import {
   query,
   movieDBImageSourceUrl,
   movieDetail,
+  popularMovies,
 } from "../constants";
 import { MovieDetail, SearchResult } from "../types";
 
@@ -55,6 +56,41 @@ export const setSearchKey = (searchKey: string) => {
   };
 };
 
+export const addMoviePage = (results: any) => {
+  return {
+    type: "ADD_MOVIE_PAGE",
+    payload: results,
+  };
+};
+
+export const addToLike = (id: string) => {
+  return {
+    type: "ADD_TO_LIKE",
+    payload: id,
+  };
+};
+
+export const removeFromLike = (id: string) => {
+  return {
+    type: "REMOVE_FROM_LIKE",
+    payload: id,
+  };
+};
+
+export const addToBlock = (id: string) => {
+  return {
+    type: "ADD_TO_BLOCK",
+    payload: id,
+  };
+};
+
+export const removeFromBlock = (id: string) => {
+  return {
+    type: "REMOVE_FROM_BLOCK",
+    payload: id,
+  };
+};
+
 // The async function to fetch trending data
 export const fetchTrending = () => {
   return fetch(trendings)
@@ -85,7 +121,7 @@ export const queryMovie = (queryTarget: string, page = 1) => {
 };
 
 // The async function to get movie detail of a movie
-export const fetchMovieDetail = (movieID: string) => {
+const fetchMovieDetail = (movieID: string) => {
   let des = movieDetail.replace("$$", movieID);
   return fetch(des).then((res) => res.json());
 };
@@ -110,5 +146,24 @@ export const queryOnPage = (keyword: string, page = 1) => {
       });
       dispatch(setMode(1));
     });
+  };
+};
+
+export const fetchPopularMovies = (page = 1) => {
+  return (dispatch: Function, getState: Function) => {
+    const state = getState();
+    fetch(popularMovies + page.toString())
+      .then((res) => {
+        return res.json();
+      })
+      .then((res) => {
+        res.results.forEach((item: MovieDetail) => {
+          if (state.homePageReducer.movies.has(item.id)) return;
+          fetchMovieDetail(item.id.toString()).then((res) => {
+            dispatch(addMovieDetail(res));
+          });
+        });
+        dispatch(addMoviePage(res));
+      });
   };
 };

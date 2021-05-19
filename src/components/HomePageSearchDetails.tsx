@@ -1,11 +1,10 @@
 import { MovieCard } from "./MovieCard";
 import { useDispatch, useSelector } from "react-redux";
 import CloseIcon from "@material-ui/icons/Close";
-import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
-import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import "../css/movieCard.css";
 import { setMode, queryOnPage } from "../actions";
 import { MovieDetail } from "../types";
+import { Pagination } from "./Pagination";
 
 const HomePageSearchDetails = () => {
   const dispatch = useDispatch();
@@ -21,6 +20,10 @@ const HomePageSearchDetails = () => {
   const searchKey = useSelector(
     (state: any) => state.homePageReducer.searchKey
   );
+
+  const blockedMovieIds = useSelector((state: any) => {
+    return state.blockedListReducer;
+  });
 
   const handleClickNext = () => {
     if (searchResult.curPage === searchResult.totalPage) return;
@@ -49,6 +52,7 @@ const HomePageSearchDetails = () => {
       <>
         <div className="movie-cards-container">
           {searchResult.movieDetails.map((item: MovieDetail, idx: number) => {
+            if (blockedMovieIds.has(item.id.toString())) return;
             return (
               <MovieCard
                 {...movies.get(parseInt(item.id.toString()))}
@@ -57,22 +61,13 @@ const HomePageSearchDetails = () => {
             );
           })}
         </div>
-
-        <div className="pagination">
-          <ChevronLeftIcon
-            className="pagination-button"
-            onClick={handleClickPrev}
-          />
-          {searchResult.curPage} / {searchResult.totalPage}
-          <ChevronRightIcon
-            className="pagination-button"
-            onClick={handleClickNext}
-          />
-          <CloseIcon
-            className="pagination-button"
-            onClick={() => dispatch(setMode(0))}
-          />
-        </div>
+        <Pagination
+          curPage={searchResult.curPage}
+          totalPage={searchResult.totalPage}
+          clickPreAction={handleClickPrev}
+          clickNextAction={handleClickNext}
+          closeActions={() => dispatch(setMode(0))}
+        />
       </>
     );
   }

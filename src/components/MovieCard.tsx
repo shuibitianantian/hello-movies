@@ -1,9 +1,18 @@
 import { MovieDetail } from "../types";
 import { movieDBImageSourceUrl } from "../constants";
 import { MovieCardHeader } from "./MovieCardHeader";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  addToBlock,
+  addToLike,
+  removeFromBlock,
+  removeFromLike,
+} from "../actions";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import ShareIcon from "@material-ui/icons/Share";
+import BlockIcon from "@material-ui/icons/Block";
 import Rating from "@material-ui/lab/Rating";
+import "../css/movieCard.css";
 
 const MovieCard = ({
   original_title,
@@ -16,6 +25,43 @@ const MovieCard = ({
   genres,
   id,
 }: MovieDetail) => {
+  const dispatch = useDispatch();
+
+  const likedMovieIds = useSelector((state: any) => {
+    return state.likedListReducer;
+  });
+
+  const blockedMovieIds = useSelector((state: any) => {
+    return state.blockedListReducer;
+  });
+
+  const handleClickLike = () => {
+    if (likedMovieIds.has(id.toString())) {
+      dispatch(removeFromLike(id.toString()));
+    } else {
+      dispatch(addToLike(id.toString()));
+      if (blockedMovieIds.has(id.toString())) {
+        dispatch(removeFromBlock(id.toString()));
+      }
+    }
+  };
+
+  const handleClickRedirect = (url: string) => {
+    window.open(url, "_blank");
+  };
+
+  const handleClickBlock = () => {
+    if (blockedMovieIds.has(id.toString())) {
+      dispatch(removeFromBlock(id.toString()));
+    } else {
+      dispatch(addToBlock(id.toString()));
+
+      if (likedMovieIds.has(id.toString())) {
+        dispatch(removeFromLike(id.toString()));
+      }
+    }
+  };
+
   const posterStyle = {
     backgroundImage: `url(${
       poster_path !== undefined && poster_path !== null
@@ -30,10 +76,6 @@ const MovieCard = ({
         ? movieDBImageSourceUrl + backdrop_path
         : ""
     })`,
-  };
-
-  const handleClickRedirect = (url: string) => {
-    window.open(url, "_blank");
   };
 
   return (
@@ -60,12 +102,25 @@ const MovieCard = ({
             <Rating value={vote_average / 2} precision={0.1} readOnly />
           </div>
           <div className="movie-card-detail-link">
-            <FavoriteIcon />
+            <FavoriteIcon
+              onClick={handleClickLike}
+              style={
+                likedMovieIds.has(id?.toString()) ? { color: "red" } : undefined
+              }
+            />
             <ShareIcon
               onClick={() =>
                 handleClickRedirect(
                   "https://www.themoviedb.org/movie/" + id.toString()
                 )
+              }
+            />
+            <BlockIcon
+              onClick={handleClickBlock}
+              style={
+                blockedMovieIds.has(id?.toString())
+                  ? { color: "red" }
+                  : undefined
               }
             />
           </div>
