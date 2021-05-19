@@ -4,10 +4,13 @@
 }
 
 .movie-cards-container {
+  box-sizing: border-box;
   position: absolute;
   width: 100vw;
   display: grid;
   grid-template-columns: repeat(auto-fill, var(--card-width));
+  grid-gap: 20px;
+  padding: 20px;
   justify-content: space-around;
   margin-bottom: 100px;
   overflow-y: hidden;
@@ -20,12 +23,14 @@
     background-repeat: no-repeat;
     height: var(--card-height);
     width: var(--card-width);
+    background-color: black;
     margin-top: 1vh;
     margin-bottom: 1vh;
     object-fit: cover;
     text-align: center;
     border-radius: 10px;
     font-size: large;
+    color: white;
 
     &:hover {
       box-shadow: 0px 0px 20px rgb(8, 8, 8);
@@ -42,12 +47,15 @@
         opacity: 1;
         transition: opacity 0.5s ease-in-out;
 
+        color: black;
         .movie-card-detail-backdrop {
-          line-height: calc(var(--card-height) / 2);
+          line-height: 15vh;
           width: var(--card-width);
           height: 30%;
           background-size: cover;
           border-radius: 10px 10px 0px 0px;
+          background-color: black;
+          color: white;
         }
 
         .movie-card-detail-overview {
