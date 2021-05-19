@@ -4,12 +4,16 @@
 }
 
 .movie-cards-container {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   position: absolute;
   width: 100vw;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (var(--card-width))[auto-fill];
       grid-template-columns: repeat(auto-fill, var(--card-width));
+  grid-gap: 20px;
+  padding: 20px;
   -ms-flex-pack: distribute;
       justify-content: space-around;
   margin-bottom: 100px;
@@ -30,6 +34,7 @@
   background-repeat: no-repeat;
   height: var(--card-height);
   width: var(--card-width);
+  background-color: black;
   margin-top: 1vh;
   margin-bottom: 1vh;
   -o-object-fit: cover;
@@ -37,6 +42,7 @@
   text-align: center;
   border-radius: 10px;
   font-size: large;
+  color: white;
 }
 
 .movie-cards-container .movie-card:hover {
@@ -66,14 +72,17 @@
   opacity: 1;
   -webkit-transition: opacity 0.5s ease-in-out;
   transition: opacity 0.5s ease-in-out;
+  color: black;
 }
 
 .movie-cards-container .movie-card:hover .movie-card-detail .movie-card-detail-backdrop {
-  line-height: calc(var(--card-height) / 2);
+  line-height: 15vh;
   width: var(--card-width);
   height: 30%;
   background-size: cover;
   border-radius: 10px 10px 0px 0px;
+  background-color: black;
+  color: white;
 }
 
 .movie-cards-container .movie-card:hover .movie-card-detail .movie-card-detail-overview {

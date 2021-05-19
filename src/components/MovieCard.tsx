@@ -3,16 +3,13 @@ import { movieDBImageSourceUrl } from "../constants";
 import { MovieCardHeader } from "./MovieCardHeader";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import ShareIcon from "@material-ui/icons/Share";
-// import StarIcon from "@material-ui/icons/Star";
 import Rating from "@material-ui/lab/Rating";
-import React from "react";
 
 const MovieCard = ({
   original_title,
   overview,
   popularity,
   vote_average,
-  vote_count,
   release_date,
   poster_path,
   backdrop_path,
@@ -41,7 +38,7 @@ const MovieCard = ({
 
   return (
     <div className="movie-card" style={posterStyle}>
-      {poster_path !== null ? null : "No poster available"}
+      {poster_path !== null ? null : `${original_title}: no poster`}
 
       <div className="movie-card-detail">
         <div className="movie-card-detail-backdrop" style={backdropStyle}>
@@ -57,7 +54,9 @@ const MovieCard = ({
         <div className="movie-card-detail-overview">{overview}</div>
         <div className="movie-card-detail-footer">
           <div className="movie-card-detail-rating">
-            <span>{vote_average.toPrecision(2)}</span>
+            <span>
+              {vote_average === undefined ? 0 : vote_average.toPrecision(2)}
+            </span>
             <Rating value={vote_average / 2} precision={0.1} readOnly />
           </div>
           <div className="movie-card-detail-link">
