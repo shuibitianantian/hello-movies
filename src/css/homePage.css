@@ -1,5 +1,41 @@
 #page-section {
-  height: 89vh;
+  position: relative;
+  height: 90vh;
+  z-index: 0;
+  background-color: rgba(247, 248, 252, 0.8);
+}
+
+#page-section .home-background-img, #page-section .home-background-img-show, #page-section .home-background-img-hide {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+          transform: translateX(-50%) translateY(-50%);
+  height: 100vh;
+  width: 100vw;
+  -o-object-fit: cover;
+     object-fit: cover;
+  z-index: -3;
+}
+
+#page-section .home-background-img-show {
+  -webkit-transition: opacity 2s ease-in-out;
+  transition: opacity 2s ease-in-out;
+  opacity: 1;
+}
+
+#page-section .home-background-img-hide {
+  -webkit-transition: opacity 2s ease-in-out;
+  transition: opacity 2s ease-in-out;
+  opacity: 0;
+}
+
+#page-section #blur-div {
+  position: absolute;
+  width: 100vw;
+  height: 90vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: -2;
 }
 
 #page-section #search-panel-container {
@@ -18,9 +54,11 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  z-index: -1;
 }
 
 #page-section #search-panel-container #search-panel {
+  background-color: white;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -48,13 +86,12 @@
 #page-section #search-panel-container #search-panel input {
   border: none;
   outline: none;
-  height: 3vh;
-  width: 520px;
+  height: 3.8vh;
+  width: 570px;
   border-radius: 30px;
   font-size: large;
   margin-left: 5px;
-  padding-left: 5px;
-  padding-right: 20px;
+  padding-left: 6px;
 }
 
 #page-section #search-panel-container #buttons {
@@ -84,5 +121,22 @@
           box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
+}
+
+@media only screen and (max-width: 700px) {
+  #page-section #search-panel-container #search-panel {
+    width: 400px;
+  }
+  #page-section #search-panel-container #search-panel input {
+    border: none;
+    outline: none;
+    height: 3vh;
+    width: 380px;
+    border-radius: 30px;
+    font-size: large;
+    margin-left: 5px;
+    padding-left: 5px;
+    padding-right: 20px;
+  }
 }
 /*# sourceMappingURL=homePage.css.map */

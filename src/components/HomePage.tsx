@@ -1,32 +1,23 @@
-import { useState, useEffect, useRef } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import SearchIcon from "@material-ui/icons/Search";
 import "../css/homePage.css";
+import { useSelector } from "react-redux";
+import HomePageBackGround from "./HomePageBackGround";
+import HomePageSearchDetails from "./HomePageSearchDetails";
 
-const HomePage = () => {
-  const inputRef = useRef<HTMLInputElement>(null);
+interface HomePageProps {
+  posterImgs: string[];
+  backdropImgs: string[];
+}
 
-  const handleClickSearchIcon = () => {
-    if (inputRef.current !== null) {
-      inputRef.current.focus();
-    }
-  };
+const HomePage = ({ posterImgs, backdropImgs }: HomePageProps) => {
+  const homePageState = useSelector((state: any) => state.homePageReducer);
 
-  return (
-    <div id="search-panel-container">
-      <div id="search-panel">
-        <SearchIcon
-          style={{ color: "lightblue", paddingLeft: "10px" }}
-          onClick={handleClickSearchIcon}
-        />
-        <input ref={inputRef} type="text" id="search-input" />
-      </div>
-      <div id="buttons">
-        <button>Check it ~</button>
-        <button>Go random</button>
-      </div>
-    </div>
-  );
+  if (homePageState.mode === 0) {
+    return (
+      <HomePageBackGround posterImgs={posterImgs} backdropImgs={backdropImgs} />
+    );
+  } else {
+    return <HomePageSearchDetails />;
+  }
 };
 
 export { HomePage };

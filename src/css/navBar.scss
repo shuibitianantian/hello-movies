@@ -6,12 +6,14 @@
 }
 
 nav {
+  position: sticky;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
   min-height: 10vh;
   box-shadow: -1px 2px 5px black;
+
   .nav-icon {
     font-weight: bold;
     .nav-sub-icon {
@@ -28,7 +30,6 @@ nav {
     }
 
     #mobile-cta-panel-container {
-      z-index: 2;
       #mobile-cta-panel {
         display: flex;
         justify-content: space-between;
@@ -44,6 +45,7 @@ nav {
           font-size: x-large;
           color: var(--title-normal-color);
           cursor: pointer;
+          text-decoration: none;
         }
 
         .page-title-normal:hover {
@@ -88,6 +90,8 @@ nav {
       #mobile-cta-panel-container {
         display: none;
         position: absolute;
+        min-height: 98vh;
+
         top: 0;
         right: 0;
         height: 100%;
