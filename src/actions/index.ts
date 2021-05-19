@@ -91,6 +91,13 @@ export const removeFromBlock = (id: string) => {
   };
 };
 
+export const setShowTrailer = (id: string | null) => {
+  return {
+    type: "SET_SHOW_TRAILER",
+    payload: id,
+  };
+};
+
 // The async function to fetch trending data
 export const fetchTrending = () => {
   return fetch(trendings)

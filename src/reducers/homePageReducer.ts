@@ -6,6 +6,7 @@ const initialState = {
   mode: 0,
   movies: new Map(),
   searchKey: "",
+  showTrailer: null,
 };
 
 const homePageReducer = (state = initialState, action: ReduxAction) => {
@@ -35,6 +36,11 @@ const homePageReducer = (state = initialState, action: ReduxAction) => {
       return {
         ...state,
         searchKey: action.payload,
+      };
+    case "SET_SHOW_TRAILER":
+      return {
+        ...state,
+        showTrailer: action.payload,
       };
     default:
       return { ...state };

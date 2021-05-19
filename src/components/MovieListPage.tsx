@@ -23,7 +23,7 @@ export const MovieListPage = () => {
 
   useEffect(() => {
     dispatch(fetchPopularMovies());
-  }, []);
+  }, [dispatch]);
 
   const handleClickPre = () => {
     if (movieListPageState.currentPageNumber - 1 === 0) return;
@@ -41,7 +41,7 @@ export const MovieListPage = () => {
     return movieListPageState.pageCache
       .get(movieListPageState.currentPageNumber)
       .map((item: MovieDetail, idx: number) => {
-        if (blockedMovieIds.has(item.id.toString())) return;
+        if (blockedMovieIds.has(item.id.toString())) return null;
         return (
           <MovieCard {...movies.get(parseInt(item.id.toString()))} key={idx} />
         );

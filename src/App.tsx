@@ -9,12 +9,13 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { MovieListPage } from "./components/MovieListPage";
 import { LikedMoviePage } from "./components/LikedMoviePage";
 import { BlockedMoviePage } from "./components/BlockedMoviePage";
+import { TrailerVideo } from "./components/TrailerVideo";
 
 function App() {
   const [posterImgs, setPosterImgs] = useState<string[]>([]);
   const [backdropImgs, setBackdropImgs] = useState<string[]>([]);
-
   const pageState = useSelector((state: any) => state.titleReducer);
+  const homePageState = useSelector((state: any) => state.homePageReducer);
 
   useEffect(() => {
     fetchTrending().then(([ps, bd]) => {
@@ -22,6 +23,14 @@ function App() {
       setBackdropImgs(bd);
     });
   }, []);
+
+  const renderTrailer = () => {
+    if (homePageState.showTrailer === null) {
+      return null;
+    } else {
+      return <TrailerVideo id={homePageState.showTrailer.toString()} />;
+    }
+  };
 
   return (
     <Router>
@@ -45,6 +54,7 @@ function App() {
             </Route>
           </Switch>
         </section>
+        {renderTrailer()}
       </div>
     </Router>
   );
