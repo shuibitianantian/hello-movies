@@ -8,6 +8,7 @@
           box-sizing: border-box;
   position: absolute;
   width: 100vw;
+  min-height: 80vh;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (var(--card-width))[auto-fill];
@@ -147,7 +148,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-right: 30px;
+  margin-right: 10px;
 }
 
 .movie-cards-container .movie-card:hover .movie-card-detail .movie-card-detail-footer .movie-card-detail-link * {
@@ -165,6 +166,44 @@
   width: 0;
   border-radius: 50px;
   background-color: white;
+}
+
+@-webkit-keyframes fading {
+  from {
+    left: 40%;
+    top: 0;
+    opacity: 0;
+  }
+  to {
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+            transform: translateX(-50%) translateY(-50%);
+    opacity: 1;
+  }
+}
+
+@keyframes fading {
+  from {
+    left: 40%;
+    top: 0;
+    opacity: 0;
+  }
+  to {
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+            transform: translateX(-50%) translateY(-50%);
+    opacity: 1;
+  }
+}
+
+.c-pages {
+  position: absolute;
+  font-size: xx-large;
+  font-family: "Times New Roman", Times, serif;
+  -webkit-animation: fading 1s forwards;
+          animation: fading 1s forwards;
 }
 
 #found-nothing {

@@ -8,5 +8,7 @@ export const query: string = `https://api.themoviedb.org/3/search/movie?api_key=
 
 export const movieDetail: string = `https://api.themoviedb.org/3/movie/$$?api_key=${apiKey}&language=en-US`;
 
+export const popularMovies: string = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=`;
+
 export const movieDBImageSourceUrl: string =
   "https://image.tmdb.org/t/p/original/";

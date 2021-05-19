@@ -12,7 +12,7 @@ const titleReducer = (state = initialState, action: ReduxAction) => {
       };
     default:
       return {
-        ...initialState,
+        ...state,
       };
   }
 };
