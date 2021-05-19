@@ -1,53 +1,174 @@
+:root {
+  --card-width: 300px;
+  --card-height: 40vh;
+}
+
 .movie-cards-container {
   position: absolute;
-  height: 90vh;
   width: 100vw;
   display: grid;
-  grid-template-columns: repeat(auto-fill, 300px);
+  grid-template-columns: repeat(auto-fill, var(--card-width));
   justify-content: space-around;
-  overflow: scroll;
-  margin-left: 12px;
+  margin-bottom: 100px;
+  overflow-y: hidden;
 
   .movie-card {
-    height: 50vh;
-    border: 1px solid rgb(17, 16, 16);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-size: cover;
-    margin-top: 3vh;
+    background-repeat: no-repeat;
+    height: var(--card-height);
+    width: var(--card-width);
+    margin-top: 1vh;
+    margin-bottom: 1vh;
     object-fit: cover;
     text-align: center;
+    border-radius: 10px;
+    font-size: large;
 
-    border-radius: 50px;
     &:hover {
       box-shadow: 0px 0px 20px rgb(8, 8, 8);
-      border-radius: 10px;
       transition: all 0.5s ease-in-out;
+
+      .movie-card-detail {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        border-radius: 10px;
+        height: var(--card-height);
+        width: var(--card-width);
+        opacity: 1;
+        transition: opacity 0.5s ease-in-out;
+
+        .movie-card-detail-backdrop {
+          line-height: calc(var(--card-height) / 2);
+          width: var(--card-width);
+          height: 30%;
+          background-size: cover;
+          border-radius: 10px 10px 0px 0px;
+        }
+
+        .movie-card-detail-overview {
+          font-size: small;
+          overflow-y: scroll;
+          margin-top: 20px;
+          max-height: 80px;
+          width: calc(var(--card-width) - 50px);
+          padding-left: 20px;
+          padding-right: 20px;
+          text-align: justify;
+
+          &::-webkit-scrollbar {
+            display: none;
+          }
+        }
+
+        .movie-card-detail-footer {
+          box-sizing: border-box;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          position: absolute;
+          padding: 10px 0 10px 0px;
+          border-radius: 0 0 10px 10px;
+          bottom: 0;
+          width: 100%;
+          color: white;
+          background-color: rgba(20, 20, 20, 0.8);
+
+          .movie-card-detail-rating {
+            width: 100px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            font-size: medium;
+            margin-left: 20px;
+
+            & > span {
+              margin-right: 10px;
+            }
+          }
+
+          .movie-card-detail-link {
+            display: flex;
+            align-items: center;
+            margin-right: 30px;
+
+            * {
+              &:hover {
+                color: red;
+              }
+              margin-left: 10px;
+            }
+          }
+        }
+      }
+    }
+
+    .movie-card-detail {
+      opacity: 0;
+      position: absolute;
+      height: 0;
+      width: 0;
+      border-radius: 50px;
+      background-color: rgba(255, 255, 255, 1);
+    }
+  }
+}
+
+#found-nothing {
+  width: 90vw;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  div {
+    font-size: xxx-large;
+    font-weight: bold;
+    font-family: "Courier New", Courier, monospace;
+  }
+  #found-nothing-close {
+    font-size: xxx-large;
+    &:hover {
+      color: rgba(238, 5, 5, 0.8);
+      transition: all 0.2s ease-in-out;
     }
   }
 }
 
 .pagination {
-  position: sticky;
-  top: 85%;
-  left: 50vw;
   display: flex;
+  position: fixed;
+  bottom: 3vh;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0.5;
   justify-content: space-between;
-  width: 150px;
+  width: 300px;
   z-index: 2;
+  background-color: rgba(0, 0, 0, 1);
+  align-items: center;
+  color: white;
+  border-radius: 10px;
 
-  span {
-    background-color: white;
-    text-align: center;
-  }
-  button {
-    border-radius: 50%;
-    height: 50px;
-    width: 50px;
-    outline: none;
-    border: none;
-    background-color: yellowgreen;
+  transition: opacity 0.2s ease-in-out;
 
+  .pagination-button {
+    font-size: xxx-large;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
     &:hover {
-      box-shadow: 0px 0px 20px rgb(8, 8, 8);
+      background-color: rgba(231, 12, 23, 0.8);
+      border-radius: 50%;
+      transition: all 0.2s ease-in-out;
     }
+  }
+
+  &:hover {
+    opacity: 1;
+    transition: opacity 0.2s ease-in-out;
   }
 }

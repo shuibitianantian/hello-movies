@@ -1,15 +1,7 @@
 import SearchIcon from "@material-ui/icons/Search";
 import { useRef, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  queryMovie,
-  setHomePageCounter,
-  setSearchResult,
-  setMode,
-  fetchMovieDetail,
-  addMovieDetail,
-} from "../actions";
-import { MovieDetail } from "../types";
+import { setHomePageCounter, queryOnPage, setSearchKey } from "../actions";
 
 interface HomePageBackGroundProps {
   backdropImgs: string[];
@@ -35,22 +27,8 @@ function HomePageBackGround({
   const handleClickCheckit = () => {
     if (inputRef.current !== null && inputRef.current.value !== "") {
       let keyword = inputRef.current.value;
-      queryMovie(keyword).then((res) => {
-        dispatch(
-          setSearchResult({
-            movieDetails: res.results,
-            totalPage: res.total_pages,
-            curPage: res.page,
-          })
-        );
-
-        res.results.forEach((item: MovieDetail) => {
-          fetchMovieDetail(item.id.toString()).then((res) => {
-            dispatch(addMovieDetail(res));
-          });
-        });
-        dispatch(setMode(1));
-      });
+      dispatch(queryOnPage(keyword, 1));
+      dispatch(setSearchKey(keyword));
     }
   };
 

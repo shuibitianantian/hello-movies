@@ -16,8 +16,7 @@ const HomePage = ({ posterImgs, backdropImgs }: HomePageProps) => {
       <HomePageBackGround posterImgs={posterImgs} backdropImgs={backdropImgs} />
     );
   } else {
-    // TODO: here to render all finded images
-    return <HomePageSearchDetails movieDetails={homePageState.movies} />;
+    return <HomePageSearchDetails />;
   }
 };
 

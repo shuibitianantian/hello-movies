@@ -14,6 +14,7 @@ export type HomePageState = {
 };
 
 export type MovieDetail = {
+  genres: object[];
   id: number | string;
   original_title: string;
   overview: string;

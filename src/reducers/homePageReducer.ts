@@ -5,6 +5,7 @@ const initialState = {
   searchResult: null,
   mode: 0,
   movies: new Map(),
+  searchKey: "",
 };
 
 const homePageReducer = (state = initialState, action: ReduxAction) => {
@@ -29,6 +30,11 @@ const homePageReducer = (state = initialState, action: ReduxAction) => {
       return {
         ...state,
         movies: new Map(state.movies),
+      };
+    case "SET_SEARCH_KEY":
+      return {
+        ...state,
+        searchKey: action.payload,
       };
     default:
       return { ...state };

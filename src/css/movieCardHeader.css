@@ -1,0 +1,89 @@
+.movie-card-header-title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.movie-card-header-title div:first-child {
+  font-size: medium;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  margin-top: 10px;
+}
+
+.movie-card-header-title div:nth-child(2) {
+  margin-top: 5px;
+  font-size: small;
+}
+
+.movie-card-popularity {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 30px;
+  font-size: x-small;
+  background-color: rgba(250, 2, 2, 0.8);
+  color: aliceblue;
+}
+
+.movie-card-more {
+  position: absolute;
+  right: 10px;
+  top: 8px;
+  font-size: xx-large;
+  color: white;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  border-radius: 50%;
+}
+
+.movie-card-more:hover {
+  background-color: white;
+  color: black;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.movie-card-genres {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: small;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-top: 10px;
+  max-height: 50px;
+  width: 200px;
+  overflow-y: scroll;
+}
+
+.movie-card-genres::-webkit-scrollbar {
+  display: none;
+}
+
+.movie-card-genres span {
+  border-radius: 2px;
+  margin: 4px;
+  padding: 2px;
+  color: black;
+  font-weight: bold;
+}
+/*# sourceMappingURL=movieCardHeader.css.map */

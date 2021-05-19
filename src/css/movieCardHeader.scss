@@ -1,0 +1,72 @@
+.movie-card-header-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  div:first-child {
+    font-size: medium;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    margin-top: 10px;
+  }
+
+  div:nth-child(2) {
+    margin-top: 5px;
+    font-size: small;
+  }
+}
+
+.movie-card-popularity {
+  $size: 30px;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  width: $size;
+  height: $size;
+  border-radius: 50%;
+  text-align: center;
+  line-height: $size;
+  font-size: x-small;
+  background-color: rgba(250, 2, 2, 0.8);
+  color: rgb(240, 248, 255);
+}
+
+.movie-card-more {
+  position: absolute;
+  right: 10px;
+  top: 8px;
+  font-size: xx-large;
+  color: white;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  border-radius: 50%;
+
+  &:hover {
+    background-color: white;
+    color: black;
+    transition: all 0.2s ease-in-out;
+  }
+}
+
+.movie-card-genres {
+  display: flex;
+  font-size: small;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  max-height: 50px;
+  width: 200px;
+  overflow-y: scroll;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  span {
+    border-radius: 2px;
+    margin: 4px;
+    padding: 2px;
+    color: black;
+    font-weight: bold;
+  }
+}
