@@ -7,6 +7,7 @@ import {
   addToLike,
   removeFromBlock,
   removeFromLike,
+  setShowTrailer,
 } from "../actions";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import ShareIcon from "@material-ui/icons/Share";
@@ -46,10 +47,6 @@ const MovieCard = ({
     }
   };
 
-  const handleClickRedirect = (url: string) => {
-    window.open(url, "_blank");
-  };
-
   const handleClickBlock = () => {
     if (blockedMovieIds.has(id.toString())) {
       dispatch(removeFromBlock(id.toString()));
@@ -60,6 +57,14 @@ const MovieCard = ({
         dispatch(removeFromLike(id.toString()));
       }
     }
+  };
+
+  const handleClickRedirect = (url: string) => {
+    window.open(url, "_blank");
+  };
+
+  const handleClickMoreIcon = () => {
+    dispatch(setShowTrailer(id.toString()));
   };
 
   const posterStyle = {
@@ -81,7 +86,6 @@ const MovieCard = ({
   return (
     <div className="movie-card" style={posterStyle}>
       {poster_path !== null ? null : `${original_title}: no poster`}
-
       <div className="movie-card-detail">
         <div className="movie-card-detail-backdrop" style={backdropStyle}>
           {backdrop_path !== null ? null : "No backdrop available"}
@@ -91,7 +95,7 @@ const MovieCard = ({
           title={original_title}
           subtitle={release_date}
           genres={genres}
-          action={() => console.log("dasda")}
+          action={handleClickMoreIcon}
         />
         <div className="movie-card-detail-overview">{overview}</div>
         <div className="movie-card-detail-footer">

@@ -126,12 +126,13 @@
     }
   }
 }
-@keyframes fading {
+@keyframes fading2 {
   from {
     left: 40%;
     top: 0;
     opacity: 0;
   }
+
   to {
     left: 50%;
     top: 50%;
@@ -144,7 +145,7 @@
   position: absolute;
   font-size: xx-large;
   font-family: "Times New Roman", Times, serif;
-  animation: fading 1s forwards;
+  animation: fading2 1s forwards;
 }
 
 #found-nothing {

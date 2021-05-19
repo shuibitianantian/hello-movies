@@ -1,0 +1,67 @@
+.trailer-container {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+          transform: translateX(-50%) translateY(-50%);
+  z-index: 2;
+  background-size: cover;
+  background-repeat: no-repeat;
+  -webkit-animation: fading 1s;
+          animation: fading 1s;
+}
+
+.trailer-container .blur-background {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+}
+
+.trailer-container iframe {
+  position: relative;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+          transform: translateX(-50%) translateY(-50%);
+  font-size: xx-large;
+  -webkit-animation: fading 2s;
+          animation: fading 2s;
+}
+
+.trailer-container p {
+  position: relative;
+  left: 50%;
+  top: 50%;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+          transform: translateX(-50%) translateY(-50%);
+  font-size: xx-large;
+  -webkit-animation: fading 2s;
+          animation: fading 2s;
+}
+
+@-webkit-keyframes fading {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fading {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+/*# sourceMappingURL=trailerVideo.css.map */

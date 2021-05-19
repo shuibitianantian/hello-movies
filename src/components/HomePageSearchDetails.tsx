@@ -52,7 +52,7 @@ const HomePageSearchDetails = () => {
       <>
         <div className="movie-cards-container">
           {searchResult.movieDetails.map((item: MovieDetail, idx: number) => {
-            if (blockedMovieIds.has(item.id.toString())) return;
+            if (blockedMovieIds.has(item.id.toString())) return null;
             return (
               <MovieCard
                 {...movies.get(parseInt(item.id.toString()))}

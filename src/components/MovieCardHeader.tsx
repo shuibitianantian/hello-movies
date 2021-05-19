@@ -1,4 +1,3 @@
-import ReactDOM from "react-dom";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import "../css/movieCardHeader.css";
 
@@ -67,11 +66,6 @@ export const MovieCardHeader = ({
         </span>
       );
     });
-  };
-
-  const modal = document.getElementById("trailer-modal");
-  const renderTrailer = () => {
-    // ReactDOM.createPortal()
   };
 
   return (

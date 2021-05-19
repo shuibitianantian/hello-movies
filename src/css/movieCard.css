@@ -168,7 +168,7 @@
   background-color: white;
 }
 
-@-webkit-keyframes fading {
+@-webkit-keyframes fading2 {
   from {
     left: 40%;
     top: 0;
@@ -183,7 +183,7 @@
   }
 }
 
-@keyframes fading {
+@keyframes fading2 {
   from {
     left: 40%;
     top: 0;
@@ -202,8 +202,8 @@
   position: absolute;
   font-size: xx-large;
   font-family: "Times New Roman", Times, serif;
-  -webkit-animation: fading 1s forwards;
-          animation: fading 1s forwards;
+  -webkit-animation: fading2 1s forwards;
+          animation: fading2 1s forwards;
 }
 
 #found-nothing {
