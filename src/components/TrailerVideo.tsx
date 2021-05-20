@@ -26,7 +26,7 @@ export const TrailerVideo = ({ id }: any) => {
         setTrailerUrls(res.results);
         setCount(res.results.length ? 0 : -1);
       });
-  }, []);
+  }, [id]);
 
   const handleClickPrev = () => {
     if (count === 0) return;
@@ -48,6 +48,7 @@ export const TrailerVideo = ({ id }: any) => {
           height="500"
           src={`https://www.youtube.com/embed/${trailerUrls[count].key}?autoplay=1&mute=1`}
           allow="autoplay"
+          title={id}
           allowFullScreen
         ></iframe>
       );

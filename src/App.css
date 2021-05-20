@@ -6,3 +6,7 @@
   color: white;
   z-index: 1;
 }
+
+.App {
+  min-height: 100vh;
+}
