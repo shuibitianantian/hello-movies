@@ -2,7 +2,6 @@
   position: relative;
   z-index: 0;
   background-color: rgba(247, 248, 252, 0.8);
-  height: 90vh;
 }
 
 #page-section .home-background-img, #page-section .home-background-img-show, #page-section .home-background-img-hide {
@@ -29,7 +28,9 @@
 #page-section #blur-div {
   position: absolute;
   width: 100vw;
-  height: 100vh;
+  height: 90vh;
+  -webkit-backdrop-filter: blur(1px);
+          backdrop-filter: blur(1px);
   background-color: rgba(0, 0, 0, 0.3);
   z-index: -2;
 }
