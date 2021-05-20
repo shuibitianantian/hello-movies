@@ -6,7 +6,7 @@
 .movie-cards-container {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  position: absolute;
+  position: relative;
   width: 100vw;
   min-height: 80vh;
   display: -ms-grid;
