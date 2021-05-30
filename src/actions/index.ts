@@ -56,6 +56,27 @@ export const setSearchKey = (searchKey: string) => {
   };
 };
 
+export const setTmpSearchKey = (tmpSearchKey: string) => {
+  return {
+    type: "SET_TMP_SEARCH_KEY",
+    payload: tmpSearchKey,
+  };
+};
+
+export const setDropdown = (showDropdown: boolean) => {
+  return {
+    type: "SET_DROP_DOWN",
+    payload: showDropdown,
+  }
+}
+
+export const setPastSearchKeys = (pastSearchKeys: any) => {
+  return {
+    type : "SET_PAST_SEARCH_KEYS",
+    payload : pastSearchKeys,
+  }
+}
+
 export const addMoviePage = (results: any) => {
   return {
     type: "ADD_MOVIE_PAGE",
