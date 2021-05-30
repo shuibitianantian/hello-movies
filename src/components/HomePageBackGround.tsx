@@ -102,7 +102,8 @@ function HomePageBackGround({
           />
           <div>
             <input 
-            style = {adjustBorder()}/>
+            style = {adjustBorder()}
+            ref={inputRef} type="text" id="search-input" onKeyUp = {handleOnSearchInputChange}/>
           </div>
         </div>
         {tmpSearchKey === "" ? <></>: isPastSearchKeysExist() && showDropdown ? <ul id = "search-autocomplete-dropdown">{DisplayPastSearchKeys()}</ul> : <></>}
