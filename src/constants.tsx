@@ -1,6 +1,7 @@
 const apiKey: string = "a70769ed423b6e1145c98ff67b4448b5";
 
-export const navBarTitles: string[] = ["Home", "Movies", "Liked", "Blocked"];
+// add Liked and Blocked in navBarTitles to enable the functionality
+export const navBarTitles: string[] = ["Home", "Movies"];
 
 export const trendings: string = `https://api.themoviedb.org/3/trending/all/day?api_key=${apiKey}`;
 

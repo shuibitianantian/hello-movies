@@ -1,5 +1,5 @@
 import SearchIcon from "@material-ui/icons/Search";
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { setHomePageCounter, queryOnPage, setSearchKey, setTmpSearchKey, setDropdown , setPastSearchKeys} from "../actions";
 
@@ -32,8 +32,12 @@ function HomePageBackGround({
   }, [dispatch, counter]);
 
   useEffect(() => {
-    dispatch(setPastSearchKeys(searchedValues.filter((item : string) => item.includes(tmpSearchKey))))
-  }, [tmpSearchKey, searchedValues])
+    dispatch(
+      setPastSearchKeys(
+        searchedValues.filter((item: string) => item.includes(tmpSearchKey))
+      )
+    );
+  }, [tmpSearchKey, searchedValues, dispatch]);
 
   const handleClickCheckit = () => {
     if (inputRef.current !== null && inputRef.current.value !== "") {

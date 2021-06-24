@@ -44,9 +44,9 @@ export const TrailerVideo = ({ id }: any) => {
     } else {
       return (
         <iframe
-          width="900"
-          height="500"
-          src={`https://www.youtube.com/embed/${trailerUrls[count].key}?autoplay=1&mute=1`}
+          width="1920"
+          height="1000"
+          src={`https://www.youtube.com/embed/${trailerUrls[count].key}?autoplay=1&mute=0`}
           allow="autoplay"
           title={id}
           allowFullScreen
