@@ -75,7 +75,9 @@
           justify-content: center;
   height: 4vh;
   width: 600px;
-  border-radius: 30px;
+  /* border-radius: 30px; */
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
   font-size: large;
   border: 1px solid #dfe1e5;
   margin-bottom: 30px;
@@ -92,11 +94,13 @@
   border: none;
   outline: none;
   height: 3.8vh;
-  width: 570px;
-  border-radius: 30px;
+  width: 560px;
+  /* border-radius: 30px; */
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
   font-size: large;
-  margin-left: 5px;
-  padding-left: 6px;
+  /* margin-left: 5px; */
+  /* padding-left: 6px; */
 }
 
 #page-section #search-panel-container #buttons {
@@ -136,12 +140,54 @@
     border: none;
     outline: none;
     height: 3vh;
-    width: 380px;
-    border-radius: 30px;
+    width: 350px;
+    /* border-radius: 30px; */
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
     font-size: large;
-    margin-left: 5px;
-    padding-left: 5px;
-    padding-right: 20px;
+    /* margin-left: 5px;
+    padding-left: 5px; */
+    /* padding-right: 20px; */
+  }
+  #page-section #search-panel-container #search-autocomplete-dropdown {
+    width: 400px;
   }
 }
+
+#search-autocomplete-dropdown {
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  position: relative;
+  background-color:rgba(255, 255, 255,1);
+  list-style-type: none;
+  padding-inline-start: 0rem;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  width: 600px;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  margin-block-start: -30px;
+}
+
+#search-autocomplete-dropdown span {
+  display: flex;
+}
+
+#search-autocomplete-dropdown span:hover {
+  background-color: rgba(1, 1, 255, 0.45);
+}
+
+#search-autocomplete-dropdown svg {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  pointer-events: none;
+}
+
+#search-autocomplete-dropdown li {
+  padding-left: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  pointer-events: none;
+}
+
 /*# sourceMappingURL=homePage.css.map */

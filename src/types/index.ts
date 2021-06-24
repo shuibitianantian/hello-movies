@@ -10,6 +10,7 @@ export type TitleState = {
 export type HomePageState = {
   movies: object[];
   searchKey: string | null;
+  tmpSearchKey: string | null;
   results: object[] | null;
 };
 

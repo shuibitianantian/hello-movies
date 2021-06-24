@@ -1,3 +1,4 @@
+import { TurnedIn } from "@material-ui/icons";
 import { ReduxAction } from "../types";
 
 const initialState = {
@@ -6,7 +7,11 @@ const initialState = {
   mode: 0,
   movies: new Map(),
   searchKey: "",
+  tmpSearchKey: "",
   showTrailer: null,
+  showDropdown : true,
+  searchedValues: [],
+  pastSearchKeys: [],
 };
 
 const homePageReducer = (state = initialState, action: ReduxAction) => {
@@ -36,7 +41,27 @@ const homePageReducer = (state = initialState, action: ReduxAction) => {
       return {
         ...state,
         searchKey: action.payload,
+        searchedValues: [...state.searchedValues, action.payload]
       };
+    
+    case "SET_DROP_DOWN":
+      return {
+        ...state,
+        showDropdown: action.payload,
+      }
+
+    case "SET_PAST_SEARCH_KEYS": 
+      return {
+        ...state,
+        pastSearchKeys: action.payload,
+      }
+
+    case "SET_TMP_SEARCH_KEY":
+      return {
+        ...state,
+        tmpSearchKey: action.payload,
+      };
+
     case "SET_SHOW_TRAILER":
       return {
         ...state,
