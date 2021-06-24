@@ -38,25 +38,23 @@ function HomePageBackGround({
     }
   };
 
+  const renderBackground = () => {
+    const imgSources = (
+      document.documentElement.clientWidth > 700 ? backdropImgs : posterImgs
+    )[counter];
+
+    return (
+      <img
+        className={"home-background-img"}
+        src={imgSources}
+        alt={imgSources}
+      />
+    );
+  };
+
   return (
     <>
-      {(document.documentElement.clientWidth > 700
-        ? backdropImgs
-        : posterImgs
-      ).map((item: string, idx: number) => {
-        return (
-          <img
-            className={
-              idx === counter
-                ? "home-background-img-show"
-                : "home-background-img-hide"
-            }
-            src={item}
-            alt={item}
-            key={idx}
-          />
-        );
-      })}
+      {renderBackground()}
       <div id="blur-div"></div>
       <div id="search-panel-container">
         <div id="search-panel">

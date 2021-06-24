@@ -1,28 +1,36 @@
+@-webkit-keyframes fading {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fading {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 #page-section {
   position: relative;
   z-index: 0;
   background-color: rgba(247, 248, 252, 0.8);
 }
 
-#page-section .home-background-img, #page-section .home-background-img-show, #page-section .home-background-img-hide {
+#page-section .home-background-img {
   position: absolute;
   height: 90vh;
   width: 100vw;
   -o-object-fit: cover;
      object-fit: cover;
   z-index: -3;
-}
-
-#page-section .home-background-img-show {
-  -webkit-transition: opacity 2s ease-in-out;
-  transition: opacity 2s ease-in-out;
-  opacity: 1;
-}
-
-#page-section .home-background-img-hide {
-  -webkit-transition: opacity 2s ease-in-out;
-  transition: opacity 2s ease-in-out;
-  opacity: 0;
+  -webkit-animation: fading 1s forwards;
+          animation: fading 1s forwards;
 }
 
 #page-section #blur-div {
